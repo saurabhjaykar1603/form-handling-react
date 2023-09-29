@@ -1,13 +1,44 @@
+body,*{
+    margin: 0px;
+    padding: 0px;
+}
 .form-card {
   height: 100px;
   border: 1px solid black;
   width: 400px;
   display: block;
   margin: 10px auto;
-  padding:20px;
+  padding: 20px;
 }
 .input-text {
-    display: block;
-    margin: 0 auto;
-    padding : 10px 10px;
+  display: block;
+  margin: 0 auto;
+  padding: 10px 10px;
+}
+.d-block {
+  display: block;
+}
+.mx-auto {
+  margin: 0 auto;
+}
+.input-radio {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    margin-top:10px;
+ 
+}
+
+.input-radio span{
+    margin-right: 20px;
+    font-size:25px ;
+
+}
+.input-radio-p {
+    font-size:20px !important;
+
+}
+.text-center{
+    text-align: center;
+    margin-top:10px;
 }
