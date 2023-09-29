@@ -22,6 +22,10 @@ function Home() {
       setDivices([...divices]);
     }
   };
+
+  //   form handling Select and option
+  const [icecream, setIceCream] = useState("vanila");
+
   return (
     <>
       <form>
@@ -88,6 +92,21 @@ function Home() {
             />{" "}
             <span className="text-center">Smartwatch</span> <br />
           </div>
+
+          {/* //   form handling Select and option */}
+          <select
+            name=""
+            id=""
+            value={icecream}
+            onChange={(e) => {
+              setIceCream(e.target.value);
+            }}
+          >
+            <option value="Chocklate">Chocklate</option>
+            <option value="Strawberry">Strawberry</option>
+            <option value="vanilla">Vanilla</option>
+          </select> <br />
+          <span>Selected Ice Creame <i style={{color: "red"}}>{icecream}</i></span>
         </div>
       </form>
     </>
