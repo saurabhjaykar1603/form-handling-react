@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Home.css";
 function Home() {
   // input type text form  handle
@@ -7,6 +7,21 @@ function Home() {
   //   form handling radio button
   const [genders, setGenders] = useState("male");
 
+  //   form handling CheckBox
+  const [divices, setDivices] = useState([]);
+  useEffect(() => {
+    console.log(divices);
+  }, [divices]);
+
+  const handleCheck = (e) => {
+    if (e.target.checked) {
+      setDivices([...divices, e.target.value]);
+    } else {
+      const indexToBeDeleted = divices.indexOf(e.target.value);
+      divices.splice(indexToBeDeleted, 1);
+      setDivices([...divices]);
+    }
+  };
   return (
     <>
       <form>
@@ -33,7 +48,7 @@ function Home() {
                   setGenders(e.target.value);
                 }
               }}
-              checked = {genders==="male"}
+              checked={genders === "male"}
             />{" "}
             <span>male</span>
             <input
@@ -42,15 +57,37 @@ function Home() {
               value="female"
               onChange={(e) => {
                 if (e.target.checked) {
-                    setGenders(e.target.value);
-                  }
+                  setGenders(e.target.value);
+                }
               }}
-              checked = {genders==="fmale"}
-
+              checked={genders === "fmale"}
             />{" "}
             <span>female</span>
           </div>
-            <p className="input-radio-p text-center"> Gender: {genders}</p>
+          <p className="input-radio-p text-center"> Gender: {genders}</p>
+          <div className="input-check-box d-flex ">
+            <input
+              type="checkbox"
+              className="text-center"
+              value="mobile"
+              onChange={handleCheck}
+            />{" "}
+            <span className="text-center">Mobile</span> <br />
+            <input
+              type="checkbox"
+              className="text-center"
+              value="laptop"
+              onChange={handleCheck}
+            />{" "}
+            <span className="text-center">Laptop</span> <br />
+            <input
+              type="checkbox"
+              className="text-center"
+              value="smartwatch"
+              onChange={handleCheck}
+            />{" "}
+            <span className="text-center">Smartwatch</span> <br />
+          </div>
         </div>
       </form>
     </>
